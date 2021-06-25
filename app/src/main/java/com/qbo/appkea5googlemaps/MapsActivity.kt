@@ -10,6 +10,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.qbo.appkea5googlemaps.commom.AppMensaje
+import com.qbo.appkea5googlemaps.commom.TipoMensaje
 import com.qbo.appkea5googlemaps.databinding.ActivityMapsBinding
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -44,5 +46,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             16.0F))
         mMap.isTrafficEnabled = true
         mMap.mapType = GoogleMap.MAP_TYPE_SATELLITE
+
+        try{
+            mMap.isMyLocationEnabled = true
+        }catch (ex: SecurityException){
+            AppMensaje.enviarMensaje(binding.root,
+            getString(R.string.errorgps), TipoMensaje.ERROR)
+        }
+
     }
 }

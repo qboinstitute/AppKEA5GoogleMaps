@@ -4,4 +4,5 @@
     <string name="titulopermisomaps">GOOGLE MAPS ACTIVITY</string>
     <string name="valbtnirmaps">VER MAPA</string>
     <string name="errorpermisogps">Es necesario habilitar el permiso de GPS para esta función.</string>
+    <string name="errorgps">Error activando el permiso de GPS.</string>
 </resources>
