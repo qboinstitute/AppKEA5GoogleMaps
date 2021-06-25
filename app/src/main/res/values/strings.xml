@@ -5,4 +5,6 @@
     <string name="valbtnirmaps">VER MAPA</string>
     <string name="errorpermisogps">Es necesario habilitar el permiso de GPS para esta función.</string>
     <string name="errorgps">Error activando el permiso de GPS.</string>
+    <string name="msjpuntodentro">El punto se encuentra dentro del polígono.</string>
+    <string name="msjpuntoafuera">El punto se encuentra fuera del polígono.</string>
 </resources>
