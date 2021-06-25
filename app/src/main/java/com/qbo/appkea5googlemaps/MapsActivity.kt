@@ -14,7 +14,8 @@ import com.qbo.appkea5googlemaps.commom.AppMensaje
 import com.qbo.appkea5googlemaps.commom.TipoMensaje
 import com.qbo.appkea5googlemaps.databinding.ActivityMapsBinding
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
+        GoogleMap.OnMapClickListener {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
@@ -39,14 +40,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             MarkerOptions()
             .position(puntoReferencia)
             .title("Punto de Referencia")
-            .icon(BitmapDescriptorFactory.fromResource(R.drawable.carrofamiliar))
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.carrofamiliar))
             .draggable(true)
             .snippet("Ahora mismo me encuentro aquí"))
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(puntoReferencia,
             16.0F))
         mMap.isTrafficEnabled = true
-        mMap.mapType = GoogleMap.MAP_TYPE_SATELLITE
-
+        //mMap.mapType = GoogleMap.MAP_TYPE_SATELLITE
         try{
             mMap.isMyLocationEnabled = true
         }catch (ex: SecurityException){
@@ -54,5 +54,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             getString(R.string.errorgps), TipoMensaje.ERROR)
         }
 
+    }
+
+    override fun onMapClick(p0: LatLng) {
+        mMap.addMarker(
+            MarkerOptions()
+                .position(p0)
+                .title("Nuevo marcador")
+        )
+        mMap.animateCamera(CameraUpdateFactory.newLatLng(p0))
     }
 }
