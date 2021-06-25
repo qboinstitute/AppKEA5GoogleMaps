@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">AppKEA5GoogleMaps</string>
     <string name="title_activity_maps">Map</string>
+    <string name="titulopermisomaps">GOOGLE MAPS ACTIVITY</string>
+    <string name="valbtnirmaps">VER MAPA</string>
+    <string name="errorpermisogps">Es necesario habilitar el permiso de GPS para esta función.</string>
 </resources>
